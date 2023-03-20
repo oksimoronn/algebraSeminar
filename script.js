@@ -37,7 +37,6 @@ function init() {
 
     const x = document.createElement("div");
     x.className = `msgTxt ${membersId}`;
-    //x.innerText = nam;
     ep.appendChild(x);
 
     const ts = document.createElement("h3");
@@ -55,13 +54,10 @@ function init() {
 
     let msgall = document.querySelectorAll(".msg");
     const t = msgall.length;
-
-    return t, msgall;
   }
 
   const drone = new ScaleDrone(CLIENT_ID, {
     data: {
-      // Will be sent out as clientData via events
       name: getRandomName(),
       color: getRandomColor(),
     },
@@ -75,8 +71,6 @@ function init() {
     room.on("open", () => {
       console.log("Successfully joined room");
     });
-
-    //
 
     room.on("data", (text, member) => {
       const cl = member.clientData.color;
