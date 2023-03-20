@@ -1,0 +1,28 @@
+.msgWindow {
+  width: 60%;
+  height: 80vh;
+  background-color: rgb(221, 231, 227);
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
+  overflow: auto;
+  &::-webkit-scrollbar {
+    width: 12px;
+    opacity: 10%;
+  }
+}
+
+.msgTxt {
+  margin: 5px;
+  padding: 5px;
+  border: 1px solid rgb(143, 170, 187);
+  border-radius: 25px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+}

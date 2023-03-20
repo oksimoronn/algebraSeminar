@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="./styles/main.css" rel="stylesheet" type="text/css" />
+
+    <script defer src="script.js"></script>
+    <script src="https://cdn.scaledrone.com/scaledrone.min.js"></script>
+
+    <title>Chat</title>
+  </head>
+  <body>
+    <main>
+      <div class="mainWindow">
+        <div class="msgWindow" id="mess"></div>
+        <form class="closeFrm">
+          <button class="closeBtn" type="submit" value="X">X</button>
+        </form>
+        <form class="msgForm" onsubmit="return false;">
+          <input
+            class="message-form__input"
+            placeholder="Type a message.."
+            type="text"
+          />
+          <input class="message-form__button" value="Send" type="submit" />
+        </form>
+      </div>
+    </main>
+  </body>
+</html>

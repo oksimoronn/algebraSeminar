@@ -1,0 +1,38 @@
+form {
+  display: flex;
+
+  & input {
+    &::placeholder {
+      font-weight: bold;
+      opacity: 0.9;
+      color: rgb(156, 79, 79);
+      text-align: center;
+    }
+
+    &:focus {
+      outline: none;
+      text-align: center;
+    }
+
+    &[type="text"] {
+      width: 40vw;
+      height: 10vh;
+      padding-left: 20px;
+      border: none;
+      background-color: beige;
+      border-bottom-left-radius: 25px;
+      display: flex;
+      align-content: center;
+    }
+
+    &[type="submit"] {
+      width: 20vw;
+      height: 10vh;
+      border: none;
+      background-color: rgb(130, 130, 237);
+      color: rgb(85, 70, 40);
+      border-bottom-right-radius: 25px;
+      font-weight: 600;
+    }
+  }
+}
