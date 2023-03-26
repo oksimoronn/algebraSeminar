@@ -13,48 +13,48 @@ const listOfNames = [
 ];
 
 function getRandomName() {
-  let ranmb = Math.random().toString().slice(-1);
+  let randNumber = Math.random().toString().slice(-1);
 
-  return listOfNames[ranmb];
+  return listOfNames[randNumber];
 }
 
 function getRandomColor() {
-  let nmcolor = Math.random().toString(16).slice(-6);
-  let rndcolor = "#" + nmcolor;
+  let hexColor = Math.random().toString(16).slice(-6);
+  let randColor = "#" + hexColor;
 
-  return rndcolor;
+  return randColor;
 }
 
 function init() {
   const CLIENT_ID = "wAHFjVc0vWlFPALd";
 
   function createMsg(nam, id, txt, col) {
-    const cl = col;
+    const colorOfMesege = col;
 
     let membersId = id;
 
-    const ep = document.querySelector(".msgWindow");
-    ep.style.display = "flex";
+    const mainWindow = document.querySelector(".msgWindow");
+    mainWindow.style.display = "flex";
 
-    const x = document.createElement("div");
-    x.className = `msgTxt ${membersId}`;
-    ep.appendChild(x);
+    const msgContainer = document.createElement("div");
+    msgContainer.className = `msgTxt ${membersId}`;
+    mainWindow.appendChild(msgContainer);
 
-    const ts = document.createElement("h3");
-    ts.innerText = nam;
-    ts.style.color = cl;
-    x.appendChild(ts);
+    const msgSender = document.createElement("h3");
+    msgSender.innerText = nam;
+    msgSender.style.color = colorOfMesege;
+    msgContainer.appendChild(msgSender);
 
-    const tx = document.createElement("p");
-    tx.innerText = `: ${txt}`;
-    tx.style.color = cl;
-    x.appendChild(tx);
+    const msgText = document.createElement("p");
+    msgText.innerText = `: ${txt}`;
+    msgText.style.color = colorOfMesege;
+    msgContainer.appendChild(msgText);
 
-    const brk = document.createElement("br");
+    /*const brk = document.createElement("br");
     ep.appendChild(brk);
 
     let msgall = document.querySelectorAll(".msg");
-    const t = msgall.length;
+    const t = msgall.length;*/
   }
 
   const drone = new ScaleDrone(CLIENT_ID, {
@@ -99,9 +99,9 @@ function init() {
   const messegeForm = document.querySelector(".msgForm");
   const inputForm = document.querySelector(".message-form__input");
   messegeForm.addEventListener("submit", () => {
-    const value = inputForm.value;
+    const msgTextValue = inputForm.value;
 
-    const checkIput = value.trim();
+    const checkIput = msgTextValue.trim();
 
     if (checkIput == "") {
       inputForm.value = "";
@@ -111,9 +111,11 @@ function init() {
 
       drone.publish({
         room: "observable-room",
-        message: value,
+        message: msgTextValue,
       });
     }
+
+    //const element = document.querySelectorAll(.)
   });
 }
 init();
