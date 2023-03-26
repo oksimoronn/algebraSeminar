@@ -1,20 +1,21 @@
+const listOfNames = [
+  "Zvonimir",
+  "Ana",
+  "Nataša",
+  "Ivan",
+  "Ivona",
+  "Jana",
+  "Martina",
+  "Melita",
+  "Luka",
+  "Ivana",
+  "Marica",
+];
+
 function getRandomName() {
-  const liname = [
-    "Zvonimir",
-    "Ana",
-    "Nataša",
-    "Ivan",
-    "Ivona",
-    "Jana",
-    "Martina",
-    "Melita",
-    "Luka",
-    "Ivana",
-    "Marica",
-  ];
   let ranmb = Math.random().toString().slice(-1);
 
-  return liname[ranmb];
+  return listOfNames[ranmb];
 }
 
 function getRandomColor() {
