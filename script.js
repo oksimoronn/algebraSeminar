@@ -49,12 +49,6 @@ function init() {
     msgText.innerText = `: ${txt}`;
     msgText.style.color = colorOfMesege;
     msgContainer.appendChild(msgText);
-
-    /*const brk = document.createElement("br");
-    ep.appendChild(brk);
-
-    let msgall = document.querySelectorAll(".msg");
-    const t = msgall.length;*/
   }
 
   const drone = new ScaleDrone(CLIENT_ID, {
@@ -74,15 +68,15 @@ function init() {
     });
 
     room.on("data", (text, member) => {
-      const cl = member.clientData.color;
+      const color = member.clientData.color;
 
       let membersId = member.id;
 
-      const prname = member.clientData.name;
+      const sender = member.clientData.name;
 
       const innerTxt = text;
 
-      createMsg(prname, membersId, innerTxt, cl);
+      createMsg(sender, membersId, innerTxt, color);
     });
   });
 
@@ -114,8 +108,36 @@ function init() {
         message: msgTextValue,
       });
     }
-
-    //const element = document.querySelectorAll(.)
   });
 }
 init();
+
+const targetNode = document.querySelector(".msgWindow");
+
+const config = { childList: true };
+
+const callback = (mutationList, observer) => {
+  for (const mutation of mutationList) {
+    if (mutation.type === "childList") {
+      const msgElements = document.querySelectorAll(".msgTxt");
+      const nmbrOfMeseges = msgElements.length;
+      console.log(msgElements, nmbrOfMeseges);
+
+      msgElements[0].setAttribute("style", "margin-left:-30vw");
+
+      for (let i = 0; i < nmbrOfMeseges; i++) {
+        if (msgElements[0].classList[1] !== msgElements[i].classList[1]) {
+          msgElements[i].setAttribute("style", "margin-right:-30vw");
+          msgElements[i].scrollIntoView({ behavior: "smooth" });
+        } else {
+          msgElements[i].setAttribute("style", "margin-left:-30vw");
+          msgElements[i].scrollIntoView({ behavior: "smooth" });
+        }
+      }
+    }
+  }
+};
+
+const observer = new MutationObserver(callback);
+
+observer.observe(targetNode, config);
