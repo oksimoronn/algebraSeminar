@@ -1,31 +1,31 @@
+function getRandomName() {
+  const liname = [
+    "Zvonimir",
+    "Ana",
+    "Nataša",
+    "Ivan",
+    "Ivona",
+    "Jana",
+    "Martina",
+    "Melita",
+    "Luka",
+    "Ivana",
+    "Marica",
+  ];
+  let ranmb = Math.random().toString().slice(-1);
+
+  return liname[ranmb];
+}
+
+function getRandomColor() {
+  let nmcolor = Math.random().toString(16).slice(-6);
+  let rndcolor = "#" + nmcolor;
+
+  return rndcolor;
+}
+
 function init() {
   const CLIENT_ID = "wAHFjVc0vWlFPALd";
-
-  function getRandomName() {
-    const liname = [
-      "Zvonimir",
-      "Ana",
-      "Nataša",
-      "Ivan",
-      "Ivona",
-      "Jana",
-      "Martina",
-      "Melita",
-      "Luka",
-      "Ivana",
-      "Marica",
-    ];
-    let ranmb = Math.random().toString().slice(-1);
-
-    return liname[ranmb];
-  }
-
-  function getRandomColor() {
-    let nmcolor = Math.random().toString(16).slice(-6);
-    let rndcolor = "#" + nmcolor;
-
-    return rndcolor;
-  }
 
   function createMsg(nam, id, txt, col) {
     const cl = col;
@@ -95,20 +95,24 @@ function init() {
     drone.close();
   });
 
-  const er = document.querySelector(".msgForm");
-  const inp = document.querySelector(".message-form__input");
-  er.addEventListener("submit", () => {
-    const value = inp.value;
-    if (value === "") {
+  const messegeForm = document.querySelector(".msgForm");
+  const inputForm = document.querySelector(".message-form__input");
+  messegeForm.addEventListener("submit", () => {
+    const value = inputForm.value;
+
+    const checkIput = value.trim();
+
+    if (checkIput == "") {
+      inputForm.value = "";
       return;
+    } else {
+      inputForm.value = "";
+
+      drone.publish({
+        room: "observable-room",
+        message: value,
+      });
     }
-
-    inp.value = "";
-
-    drone.publish({
-      room: "observable-room",
-      message: value,
-    });
   });
 }
 init();
