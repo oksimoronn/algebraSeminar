@@ -123,10 +123,10 @@ const callback = (mutationList, observer) => {
 
       for (let i = 0; i < nmbrOfMeseges; i++) {
         if (firstUserClassName !== msgElements[i].classList[1]) {
-          msgElements[i].setAttribute("style", "margin-right:-30vw");
+          msgElements[i].setAttribute("style", "margin-left:-30vw");
           msgElements[i].scrollIntoView({ behavior: "smooth" });
         } else {
-          msgElements[i].setAttribute("style", "margin-left:-30vw");
+          msgElements[i].setAttribute("style", "margin-right:-30vw");
           msgElements[i].scrollIntoView({ behavior: "smooth" });
         }
       }
