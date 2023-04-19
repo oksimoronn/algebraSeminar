@@ -11,6 +11,7 @@ const listOfNames = [
   "Ivana",
   "Marica",
 ];
+const CLIENT_ID = "wAHFjVc0vWlFPALd";
 
 function getRandomName() {
   let randNumber = Math.random().toString().slice(-1);
@@ -25,8 +26,6 @@ function getRandomColor() {
   return randColor;
 }
 
-const CLIENT_ID = "wAHFjVc0vWlFPALd";
-
 function createMsg(nam, id, txt, col) {
   const colorOfMesege = col;
 
@@ -40,12 +39,12 @@ function createMsg(nam, id, txt, col) {
   mainWindow.appendChild(msgContainer);
 
   const msgSender = document.createElement("h3");
-  msgSender.innerText = nam;
+  msgSender.innerText = `${nam} :`;
   msgSender.style.color = colorOfMesege;
   msgContainer.appendChild(msgSender);
 
   const msgText = document.createElement("p");
-  msgText.innerText = `: ${txt}`;
+  msgText.innerText = ` ${txt}`;
   msgText.style.color = colorOfMesege;
   msgContainer.appendChild(msgText);
 }

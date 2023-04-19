@@ -20,9 +20,19 @@
 .msgTxt {
   margin: 5px;
   padding: 5px;
+  max-width: 200px;
   border: 1px solid rgb(143, 170, 187);
   border-radius: 25px;
   display: flex;
   flex-wrap: wrap;
   align-items: baseline;
+}
+
+.msgTxt {
+  p {
+    overflow: hidden;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    hyphens: auto;
+  }
 }
