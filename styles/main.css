@@ -58,7 +58,7 @@ body {
   overflow-wrap: break-word;
   word-wrap: break-word;
   -webkit-hyphens: auto;
-          hyphens: auto;
+  hyphens: auto;
 }
 
 form {
@@ -80,7 +80,7 @@ form input:focus {
   outline: none;
   text-align: center;
 }
-form input[type=text] {
+form input[type="text"] {
   width: 40vw;
   height: 10vh;
   padding-left: 20px;
@@ -90,7 +90,7 @@ form input[type=text] {
   display: flex;
   align-content: center;
 }
-form input[type=submit] {
+form input[type="submit"] {
   width: 20vw;
   height: 10vh;
   border: none;
@@ -117,4 +117,4 @@ form input[type=submit] {
   font-weight: 900;
   border-radius: 25px;
   border-style: hidden;
-}/*# sourceMappingURL=main.css.map */
+} /*# sourceMappingURL=main.css.map */

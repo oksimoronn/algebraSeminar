@@ -57,13 +57,9 @@ const drone = new ScaleDrone(CLIENT_ID, {
 });
 
 drone.on("open", () => {
-  //console.log("Successfully connected to Scaledrone");
-
   const room = drone.subscribe("observable-room");
 
-  room.on("open", () => {
-    //console.log("Successfully joined room");
-  });
+  room.on("open", () => {});
 
   room.on("data", (text, member) => {
     const color = member.clientData.color;
@@ -90,6 +86,7 @@ close.addEventListener("submit", (e) => {
 
 const messegeForm = document.querySelector(".msgForm");
 const inputForm = document.querySelector(".message-form__input");
+
 messegeForm.addEventListener("submit", () => {
   const msgTextValue = inputForm.value;
 
@@ -112,7 +109,7 @@ const targetNode = document.querySelector(".msgWindow");
 
 const config = { childList: true };
 
-const callback = (mutationList, observer) => {
+const callback = (mutationList) => {
   for (const mutation of mutationList) {
     if (mutation.type === "childList") {
       const firstUserClassName = drone.clientId;
